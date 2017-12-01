@@ -1,0 +1,16 @@
+.mySlide{
+    width: 1200px;
+    margin-top: -21px;
+
+}
+.mySlide img{
+    width: 1200px;
+
+}
+.carousel-control{
+    left: 0px;
+    width: 40px;
+    background-color: black ;
+    height: 50px;
+    top: 250px;
+}

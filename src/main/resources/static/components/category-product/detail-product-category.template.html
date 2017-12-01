@@ -1,0 +1,23 @@
+
+
+<div class="container">
+    <div class="col-sm-6 col-sm-4  " ng-repeat="carBox in $ctrl.getIdCategory.data">
+        <div class="thumbnail boxModel hover01 column">
+            <figure>
+                <p ng-repeat="img in carBox.imageForms track by $index">
+                    <img ng-src="{{img.imageUrl}}"/>
+                </p>
+            </figure>
+            <h4 class="chitiet"><a data-ui-sref="detail({id: carBox.id})">Xem Chi Tiết</a></h4>
+            <div class=" caption ">
+                <h3 class="id"><span><a class="myfont"
+                                        data-ui-sref="detail({id: carBox.id})">{{carBox.name}}</a></span></h3>
+                <p class="money">{{carBox.price | currency}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="text-align: center">
+     <ul uib-pagination total-items="$ctrl.filter.totalItems" ng-model="$ctrl.filter.page"
+               class="pagination-sm" boundary-link-numbers="true" rotate="false" ng-change="$ctrl.pageChange()"></ul>
+</div>

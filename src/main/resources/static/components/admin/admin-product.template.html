@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-md-8">
+        <form class="form-inline" ng-submit="$ctrl.search($ctrl.filter)">
+            <div class="form-group">
+                <label class="control-label sr-only">Search</label>
+                <input type="text" class="form-control" ng-model="$ctrl.filter.search">
+            </div>
+            <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+    </div>
+
+    <div class="col-md-4">
+        <button class="btn btn-success" data-ui-sref="register">Create</button>
+    </div>
+</div>
+
+<p class="alert-danger alert" ng-if="$ctrl.error.length">
+{{$ctrl.error}}
+</p>
+
+
+<table class="table table-hover table-striped " border="1" cellspacing="0" cellpadding="5">
+    <caption><h2>List Of User</h2></caption>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>USERNAME</th>
+        <th>FULL NAME</th>
+        <th>ADDRESS</th>
+        <th>EMAIL</th>
+        <th>SEX</th>
+        <th>ROLE</th>
+        <th colspan="2" style="text-align: center">ACTION</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="user in $ctrl.users.data track by $index">
+        <td>{{user.id}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.fullName}}</td>
+        <td>{{user.address}}</td>
+        <td>{{user.email}}</td>
+        <td >{{user.sex}}</td>
+        <td ><p ng-repeat="r in user.roles track by $index">{{r.role}}</p></td>
+        <td style="text-align: center">
+            <div class="btn-group btn-group-sm" >
+                <button  class="btn-warning btn" data-ui-sref="edit({id: user.id})" >Edit</button>
+                <button class="btn-danger btn" ng-click="$ctrl.delete(user.id)">Delete</button>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div style="text-align: center">
+     <ul uib-pagination total-items="$ctrl.filter.totalItems" ng-model="$ctrl.filter.page" max-size="5"
+      class="pagination-sm" boundary-link-numbers="true" rotate="false" ng-change="$ctrl.pageChange()"></ul>
+</div>

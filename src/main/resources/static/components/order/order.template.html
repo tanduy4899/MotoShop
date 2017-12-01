@@ -1,0 +1,141 @@
+<div class="row">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-6">
+        <form name="orderForm" ng-submit="$ctrl.sendData(orderForm.$valid) " novalidate class="form-horizontal">
+
+            <div class="panel panel-group formDuy ">
+                <div class="form-group"
+                     ng-class="{ 'has-error' : orderForm.name.$invalid && !orderForm.name.$pristine}">
+                    <label class="col-lg-3 control-label required">Họ Tên</label>
+                    <div class="col-lg-7">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" placeholder="Input UserName" name="userName"
+                                       ng-model="$ctrl.getData.name"
+                                       ng-required="true">
+                            </div>
+                            <div class="col-lg-2">
+                                <i class="glyphicon glyphicon-ok valid "
+                                   ng-show="orderForm.name.$dirty && orderForm.name.$valid"></i>
+                            </div>
+                        </div>
+                        <p class="error" ng-show="orderForm.name.$error.required" class="help-block">nhập họ tên.</p>
+
+                    </div>
+                </div>
+                </br>
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Tỉnh/Thành Phố</label>
+                    <div class="col-lg-7">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <select class="form-control" ng-model="$ctrl.getData.city">
+                                    <option value="">Please choice sex</option>
+                                    <option>Male</option>
+                                    <option>FelMale</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-2"></div>
+                        </div>
+                    </div>
+                </div>
+                </br>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Huyện/Quận</label>
+                    <div class="col-lg-7">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <select class="form-control" ng-model="$ctrl.getData.district">
+                                    <option value="">Please choice sex</option>
+                                    <option>đà nẵng</option>
+                                    <option>Quảng Ngãi</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-2"></div>
+                        </div>
+                    </div>
+                </div>
+                </br>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Xã/Phường</label>
+                    <div class="col-lg-7">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <select class="form-control" ng-model="$ctrl.getData.wards">
+                                    <option value="">Please choice sex</option>
+                                    <option>Tu Nghĩa</option>
+                                    <option>FelMale</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-2"></div>
+                        </div>
+                    </div>
+                </div>
+                </br>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Address số nhà đầy đủ</label>
+                    <div class="col-lg-7">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" placeholder="Input specificAddress"
+                                       ng-model="$ctrl.getData.specificAddress" required>
+                            </div>
+                            <div class="col-lg-2"></div>
+                        </div>
+
+                    </div>
+                </div>
+                </br>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Phone</label>
+                    <div class="col-lg-7">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" placeholder="Input Phone"
+                                       ng-model="$ctrl.getData.phone"
+                                       required>
+                            </div>
+                            <div class="col-lg-2"></div>
+                        </div>
+
+                    </div>
+                </div>
+                </br>
+                <div class="form-group" ng-class="{'has-error': orderForm.email.$invalid && !orderForm.email.$pristine}">
+                    <label class="col-lg-3 control-label">Email</label>
+                    <div class="col-lg-7">
+                        <div class="row">
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" placeholder="Input Email" name="email"
+                                       ng-model="$ctrl.getData.email" ng-pattern="/^.+@gmail\.com$/" ng-required=true>
+                            </div>
+                            <div class="col-lg-2">
+                                <i class="glyphicon glyphicon-ok valid " ng-show="orderForm.email.$valid"></i>
+                            </div>
+                        </div>
+
+                        <p ng-show="orderForm.email.$invalid && !orderForm.email.$pristine" class="help-block">Enter a
+                            Invalid email.</p>
+                        <span class="error" ng-show="!orderForm.email.$error.required && orderForm.email.$error.pattern"> email address is required</span>
+
+                    </div>
+                </div>
+                </br>
+                </br>
+                <div class="form-group" style="text-align: center">
+                    <button type="submit" ng-disabled="orderForm.$invalid">Submit</button>
+                </div>
+                </br>
+            </div>
+        </form>
+
+    </div>
+    <div class="col-md-3">
+
+    </div>
+</div>
+
+

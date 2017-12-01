@@ -1,0 +1,22 @@
+
+<div class="container">
+    <div class="col-sm-6 col-sm-4  "ng-repeat="sanPham in $ctrl.getSanPham ">
+        <div class="thumbnail boxModel hover01 column">
+            <figure>
+                <p ng-repeat="img in sanPham.items track by $index">
+                    <img ng-src="{{img.imageUrl}}"/>
+                </p>
+            </figure>
+            <h4 class="chitiet"><a data-ui-sref="detail({id: sanPham.id})">Xem Chi Tiết</a></h4>
+            <div class=" caption ">
+                <h3 class="id"><span><a class="myfont"
+                                        data-ui-sref="detail({id: product.id})">{{sanPham.name}}</a></span></h3>
+                <p class="money">{{sanPham.price | currency}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

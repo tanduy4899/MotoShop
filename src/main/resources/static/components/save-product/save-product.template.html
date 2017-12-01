@@ -1,0 +1,24 @@
+<div class="container">
+    <h3>Sản Phẩm Khuyến Mãi</h3>
+    <div class="col-sm-6 col-sm-4  " ng-repeat="save in $ctrl.trang.content ">
+
+            <div class="thumbnail boxModel hover01 column">
+
+                <figure>
+                    <p ng-repeat="img in save.items track by $index">
+
+                        <img ng-src="{{img.imageUrl}}"/>
+                    </p>
+                </figure>
+                <h4 class="chitiet"><a  data-ui-sref="detail({id: save.id})">Xem Chi Tiết</a></h4>
+                <div class=" caption ">
+                    <h3 class="id"><span><a class="myfont"
+                                            data-ui-sref="detail({id: save.id})">{{save.name}}</a></span></h3>
+                    <p class="money">{{save.price | currency}}</p>
+                </div>
+
+        </div>
+
+    </div>
+</div>
+

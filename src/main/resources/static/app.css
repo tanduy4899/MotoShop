@@ -1,0 +1,33 @@
+.additional-shop-info {
+    margin-top: 1em;
+}
+.logo{
+    margin-left: 150px;
+}
+.mynav{
+    background-color: #666666;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
+    background-color: #eba600;
+}
+.myfotter{
+    font-size: 13px;
+    color: #999;
+}
+.xemthem{
+    color:#eba600 ;
+    font-size: 15px;
+
+    text-decoration: underline  ;
+}
+.icon{
+    height: 40px;
+}
+.thuonghieu{
+    margin-top: 30px;
+    color: #999;
+}
+.end{
+    background: #212121;
+    height: 180px;
+}

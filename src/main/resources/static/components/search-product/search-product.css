@@ -1,0 +1,30 @@
+.timkiem{
+    margin-top: -21px;
+    margin-bottom: 20px;
+
+}
+.pull-left{
+    margin-left: 30px;
+}
+.pull-left h1{
+    font-size: 25px;
+}
+#search_text{
+    height: 33px;border: 1px solid #ccc;margin-left: 10px;padding-left: 10px;width: 250px;
+}
+#search_text_java{
+    height: 33px;border: 1px solid #ccc;margin-left: 10px;padding-left: 10px;width: 200px;
+}
+.btntim{
+    margin-top:10px;
+    margin-right:20px;
+
+}
+.btn-lg{
+    border-radius: 0px;
+    float:none; height:32px;
+}
+.sp{
+    padding-left:50px;
+    font-size: 25px;
+}

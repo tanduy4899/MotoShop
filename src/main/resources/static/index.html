@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/ng-table/bundles/ng-table.css">
+    <link rel="stylesheet" href="node_modules/angularjs-slider/dist/rzslider.css">
+    <link rel="stylesheet" href="app.css">
+
+    <link rel="stylesheet" href="components/shop/shop-product.css">
+    <link rel="stylesheet" href="components/detail-product/detail-product.css">
+    <link rel="stylesheet" href="components/my-slide/my-slide.css">
+    <link rel="stylesheet" href="components/search-product/search-product.css">
+    <link rel="stylesheet" href="components/admin/admin.css">
+    <link rel="stylesheet" href="node_modules/angular-loading-bar/src/loading-bar.css">
+
+</head>
+<body ng-app="myApp">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-sm-6 additional-shop-info">
+            <ul class="list-unstyled list-inline">
+                <li>
+                    <i class="fa fa-phone"></i>
+                    <span class="glyphicon glyphicon-earphone">01654274899</span>
+                </li>
+                <li class="shop-currencies">
+                    <a>€</a>
+                    <a>£</a>
+                    <a class="current">$</a>
+                </li>
+                <li class="langs-block">
+                    <div class="btn-group" uib-dropdown>
+                        <button id="split-button" type="button" class="btn btn-default">English</button>
+                        <button type="button" class="btn btn-default" uib-dropdown-toggle>
+                            <span class="caret"></span>
+                            <span class="sr-only"></span>
+                        </button>
+                        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="split-button">
+                            <li role="menuitem"><a href="#">French</a></li>
+                            <li role="menuitem"><a href="#">Japan</a></li>
+                            <li role="menuitem"><a href="#">USA</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-md-6 col-sm-6 additional-nav">
+            <ul class="list-unstyled list-inline pull-right">
+                <li><a data-ui-sref="admin" class="btn btn-danger">ADMIN </a></li>
+                <li><a data-ui-sref="login" class="btn btn-danger">LogIn</a></li>
+                <li><a data-ui-sref="register" class="btn btn-danger">Register</a></li>
+                <li><a href="#" class="btn btn-danger">LogOut </a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- end pre-header-->
+<div class="mynav">
+    <nav class="navbar navbar-default ">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"><img class="logo"
+                                                      src="http://shopphukienmoto.com/themes/default/images/logo.png"></a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#" class="glyphicon glyphicon-home ">Home</a></li>
+                <li><a href="#">VỀ VỚI CHÚNG TÔI</a></li>
+                <li><a data-ui-sref="sanPham">SẢN PHẨM</a></li>
+                <li><a data-ui-sref="saveProduct">KHUYẾN MÃI</a></li>
+                <li><a href="#">BLOG</a></li>
+                <li><a href="#">LIÊN LẠC</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<!--<div ng-view></div>-->
+<div class="container">
+    <div class="row myclass">
+        <div data-ui-view="viewA"></div>
+        <div class="col-sm-9 ">
+            <div data-ui-view="viewB"></div>
+        </div>
+        <div class="col-sm-3">
+            <div data-ui-view="viewC"></div>
+        </div>
+    </div>
+</div>
+
+<div class="panel-footer" style="background: #393939">
+    <div class="container">
+        <div class="row myfotter">
+            <div class="col-md-4" style="text-align: center">
+                <div align="justify">
+                    <p>
+                    <h3 style="color: white">GIỚI THIỆU VỀ CHÚNG TÔI</h3>
+                    Sứ mệnh của chúng tôi là trở thành một nhà cung cấp
+                    phụ kiện moto và phụ kiện phượt hàng đầu trong nước
+                    và luôn luôn cập nhật mới sản phẩm
+                    cho những ai đam mê moto và người chơi phượt..
+                    </p>
+                    <br>
+                    <img class="icon" src="image//icon/map.jpg"> 70 Mỹ An 7, Ngũ Hành Sơn, Đà Nẵng. <a class="xemthem"
+                                                                                                       data-ui-sref="mapProduct">Xem
+                    Bản đồ</a>
+                    <br>
+                    <br>
+                    <img class="icon" src="image//icon/phone.jpg"> Hotline: 01654274899 (Mr. Duy)
+                    <br>
+                    <br>
+                    <img class="icon" src="image//icon/email.png"> <a class="xemthem">tanduy899@gmail.com</a>
+                </div>
+
+            </div>
+            <div class="col-md-4" style="text-align: center">
+
+                <ul style="list-style-type: none" align="justify">
+                    <h3 style="color: white">CHÍNH SÁCH & QUI ĐỊNH</h3>
+                    <li><a href="#" style="color: #999">QUY ĐỊNH VÀ HÌNH THỨC THANH TOÁN</a></li>
+                    <li><a href="#" style="color: #999">CHÍNH SÁCH ĐỔI TRẢ HÀNG</a></li>
+                    <li><a href="#" style="color: #999">CHÍNH SÁCH BẢO MẬT THÔNG TIN</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4" style="text-align: center">
+                <div align="justify">
+                    <h3 style="color: white">BÀI VIẾT MỚI</h3>
+                    <p> Xe Suzuki GSX-S150 lên thùng sau GIVI E43NML và thùng hông GIVI E22N
+                        Xe Suzuki GSX-S150 lên thùng sau GIVI E43NML và thùng hông E22N dùng để đựng đồ
+                        trong quá trình di chuyển như:(áo mưa bộ, găng tay, đồ bảo hộ...)
+                        với sự kết hợp này còn giúp cho chiếc xe của bạn sẽ sang trọng và thời trang hơn....
+                    </p>
+                    <a class="xemthem" href="#">Xem thêm</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="end">
+    <div class="container">
+        <p class="thuonghieu">
+            CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ PHỤ KIỆN PHƯỢT
+            Mã số doanh nghiệp: 0313659947 do Sở Kế hoạch và Đầu tư TP. Đà Nẵng cấp lần đầu ngày 14/9/2017.<br>
+            Đăng ký thay đổi lần thứ 1 do Sở Kế hoạch và Đầu tư TP. Hồ Chí Minh ngày 18/03/2016.
+        </p>
+        <br>
+
+        <img src="http://shopphukienmoto.com/uploads/dathongbaobocongthuong.png">
+    </div>
+
+</div>
+<script src="node_modules/angular/angular.js"></script>
+<script src="node_modules/angular-route/angular-route.js"></script>
+<script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+<script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="node_modules/angularjs-slider/dist/rzslider.js"></script>
+<script src="node_modules/ngmap/build/scripts/ng-map.min.js"></script>
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyBqLxWZx6zxJ9G_gsfnNO2ZE-9WIoJAFgw"></script>
+<script src="node_modules/ng-table/bundles/ng-table.js"></script>
+<script src="node_modules/angular-utils-pagination/dirPagination.js"></script>
+<script src="node_modules/angular-loading-bar/src/loading-bar.js"></script>
+
+<script src="app.module.js"></script>
+<script src="module/product.module.js"></script>
+<script src="module/admin.module.js"></script>
+<script src="service/admin-service.js"></script>
+<script src="components/shop/shop-product.component.js"></script>
+<script src="components/login/login.component.js"></script>
+<script src="components/detail-product/detail-product.component.js"></script>
+<script src="components/admin/admin-product.component.js"></script>
+<script src="components/admin/register.component.js"></script>
+<script src="components/admin/edit-user.component.js"></script>
+<script src="components/order/order.component.js"></script>
+<script src="components/search-product/search-product.component.js"></script>
+<script src="components/category-product/category-product.component.js"></script>
+<script src="components/category-product/detail-product-category.js"></script>
+<script src="components/map-product/map-product.component.js"></script>
+<script src="components/san-pham-product/san-pham-product.component.js"></script>
+<script src="components/save-product/save-product.component.js"></script>
+
+<script src="directive/confirmPassword-directive.js"></script>
+<script src="components/my-slide/slide-directive.js"></script>
+<script src="service/product-service.js"></script>
+<script src="filter/status-filter.js"></script>
+<script src="router/router.js"></script>
+</body>
+</html>
