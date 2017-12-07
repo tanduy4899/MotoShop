@@ -7,6 +7,7 @@ import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.validation.constraints.NotNull;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -29,8 +30,5 @@ public class UserForm {
     @NotBlank
     private String sex;
 
-    private Set<RoleForm> roleForms;
-
-    private List<UserRole> userRoles;
-
+    private Role roles;
 }

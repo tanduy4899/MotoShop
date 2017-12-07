@@ -3,10 +3,12 @@ package com.arisee.shop.domain.user;
 
 
 
+import com.arisee.shop.model.user.RoleForm;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +18,8 @@ import java.util.stream.Collectors;
 
 @Entity
 @Data
-@Table(name ="user")
-public class User {
+@Table(name ="users")
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private BigInteger id;
@@ -29,15 +31,9 @@ public class User {
     private String email;
     private String sex;
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    @JsonIgnore
-    private Set<UserRole> userRoles ;
-
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "user_role",
-            joinColumns = @JoinColumn(name = "userId"),
-            inverseJoinColumns = @JoinColumn(name = "roleId"))
-    private Set<Role> roles ;
+    @ManyToOne
+    @JoinColumn(name = "roleId")
+    private Role roles ;
 
     public User() {
 
@@ -52,7 +48,6 @@ public class User {
         this.email = user.getEmail();
         this.sex = user.getSex();
         this.roles = user.getRoles();
-//        this.userRoles = user.getUserRoles();
     }
 
     public com.arisee.shop.model.user.User toUser(){
@@ -66,10 +61,6 @@ public class User {
         rs.setEmail(email);
         rs.setSex(sex);
         rs.setRoles(roles);
-//        rs.setUserRoleList(getUserRoles().stream().map(UserRole::toUserRole).collect(Collectors.toSet()));
-
-//        rs.setUserRoleList(userRoles);
         return rs;
     }
-
 }

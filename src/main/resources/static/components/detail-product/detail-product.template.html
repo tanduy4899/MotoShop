@@ -56,7 +56,7 @@
     <div class="col-sm-4  " ng-repeat="product in $ctrl.products.data | limitTo :6 ">
         <div class="thumbnail boxModel hover01 column">
             <figure>
-                <p ng-repeat="img in product.items track by $index  ">
+                <p ng-repeat="img in product.imageForms track by $index  ">
                     <img ng-src="{{img.imageUrl  }}"/>
                 </p>
             </figure>

@@ -11,12 +11,13 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "category")
+@Table(name = "categories")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private BigInteger id;
     private String name;
+
     @OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Product> productList = new ArrayList<>();

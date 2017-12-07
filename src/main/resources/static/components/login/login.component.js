@@ -12,7 +12,7 @@ function LoginController(adminService, $log,$state) {
     };
 
     vm.loginSuccess = function (success) {
-        vm.admin="ROLE_ADMIN";
+        vm.admin="ROLE_Role(id=1, role=ADMIN)";
         if(vm.admin == success.data[0].authority ){
             $state.go("admin");
         }else {

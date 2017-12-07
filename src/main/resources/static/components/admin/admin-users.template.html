@@ -41,7 +41,7 @@
         <td>{{user.address}}</td>
         <td>{{user.email}}</td>
         <td >{{user.sex}}</td>
-        <td ><p ng-repeat="r in user.roles track by $index">{{r.role}}</p></td>
+        <td >{{user.roles.role}}</td>
         <td style="text-align: center">
             <div class="btn-group btn-group-sm" >
                 <button  class="btn-warning btn" data-ui-sref="edit({id: user.id})" >Edit</button>

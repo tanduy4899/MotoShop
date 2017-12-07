@@ -21,6 +21,8 @@ import java.math.BigInteger;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static com.arisee.shop.domain.user.User_.address;
+
 @Service
 public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
@@ -31,9 +33,10 @@ public class UserService implements UserDetailsService {
     @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
+
     }
 
-
+//    @PreAuthorize("hasRole(ADMIN)")
     public PagingObject<User> getAllUsers(Pageable pageable, String username, String fullName) {
         if (pageable.getPageSize() > 500) throw new RuntimeException("Page size too big");
         PagingObject<User> rs = new PagingObject<>();
@@ -45,7 +48,7 @@ public class UserService implements UserDetailsService {
                     predicates.add(cb.like(root.get(User_.username), "%" + username + "%"));
                 }
                 if (StringUtils.hasText(fullName)) {
-                    predicates.add(cb.like(root.get(User_.fullName), "%" + fullName + "%"));
+                    predicates.add(cb.like(root.get(address), "%" + address + "%"));
                 }
                 return cb.or(predicates.toArray(new Predicate[predicates.size()]));
             }, pageable);
@@ -76,7 +79,7 @@ public class UserService implements UserDetailsService {
             user.setFullName(userForm.getFullName());
             user.setPhone(userForm.getPhone());
             user.setSex(userForm.getSex());
-
+            user.setRoles(userForm.getRoles());
             return this.userRepository.save(user);
         });
     }
@@ -91,6 +94,7 @@ public class UserService implements UserDetailsService {
         user.setPhone(userForm.getPhone());
         user.setFullName(userForm.getFullName());
         user.setSex(userForm.getSex());
+        user.setRoles(userForm.getRoles());
         return this.userRepository.save(user);
     }
 

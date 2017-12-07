@@ -7,7 +7,7 @@ import java.math.BigInteger;
 
 @Entity
 @Data
-@Table(name ="`order`")
+@Table(name ="`orders`")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

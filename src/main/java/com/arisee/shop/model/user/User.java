@@ -2,11 +2,9 @@ package com.arisee.shop.model.user;
 
 
 import com.arisee.shop.domain.user.Role;
-import com.arisee.shop.domain.user.UserRole;
 import lombok.Data;
 
 import java.math.BigInteger;
-import java.util.List;
 import java.util.Set;
 
 @Data
@@ -19,6 +17,6 @@ public class User {
     private String phone;
     private String email;
     private String sex;
-    private Set<Role> roles;
-    private Set<com.arisee.shop.model.user.UserRole> userRoleList;
+
+    private Role roles;
 }

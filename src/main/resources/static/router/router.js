@@ -28,7 +28,7 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
                 reloadOnSearch: false,
                 views:{
                     "viewA": {
-                        template: "dsadassad"
+                        template: "<search-product></search-product>"
                     },
                     "viewB": {
                         templateUrl:'components/admin/register.template.html',
@@ -51,7 +51,7 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
                     //     template: " Quản Lý Thông Tin"
                     // },
                     "viewB": {
-                        templateUrl:'components/admin/admin-product.template.html',
+                        templateUrl:'components/admin/admin-users.template.html',
                         controller:AdminController,
                         controllerAs:'$ctrl'
                     }
@@ -96,9 +96,7 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
                 url:'/sanPham',
                 reloadOnSearch: false,
                 views:{
-                    // "viewA":{
-                    //     templateUrl:'components/search-product/san-pham.template.html'
-                    // },
+
                     "viewB":{
                         templateUrl:'components/san-pham-product/san-pham-product.template.html',
                         controller: SanPhamProductController,
@@ -116,9 +114,6 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
                 url:'/mapProduct',
                 reloadOnSearch: false,
                 views:{
-                    "viewA":{
-                        templateUrl:'components/search-product/san-pham.template.html'
-                    },
                     "viewB":{
                         templateUrl:'components/map-product/map-product.template.html',
                         controller: MapProductController,
@@ -179,30 +174,26 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
                 }
             })
             // begin search
-            .state('search',{
-                url:'/search',
-                views:{
-                    "viewB":{
-                        templateUrl: "components/search-product/search-product.template.html",
-                        controller:SearchProductController,
-                        controllerAs:'$ctrl'
-                    },
-                    "viewC":{
-                        templateUrl:'components/category-product/view-narbar.template.html',
-                        controller: 'CategoryProductController',
-                        controllerAs: '$ctrl'
-                    }
-                }
-            })
+            // .state('search',{
+            //     url:'/search',
+            //     views:{
+            //         "viewB":{
+            //             templateUrl: "components/search-product/search-product.template.html",
+            //             controller:SearchProductController,
+            //             controllerAs:'$ctrl'
+            //         },
+            //         "viewC":{
+            //             templateUrl:'components/category-product/view-narbar.template.html',
+            //             controller: 'CategoryProductController',
+            //             controllerAs: '$ctrl'
+            //         }
+            //     }
+            // })
             // begin detail
             .state('detail',{
                 url: '/product/:id',
                 reloadOnSearch: false,
                 views: {
-                    "viewA": {
-                        templateUrl:'components/search-product/san-pham.template.html'
-
-                    },
                     "viewB": {
                         templateUrl: 'components/detail-product/detail-product.template.html',
                         controller: ProductDetailController,
