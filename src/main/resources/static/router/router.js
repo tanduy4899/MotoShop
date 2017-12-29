@@ -183,7 +183,7 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
                 url:'/forgot-password',
                 views:{
                     "viewB": {
-                        templateUrl: 'components/forgot-password/form-reset-token.template.html',
+                        templateUrl: 'components/forgot-password/form-confirm-email.template.html',
                         // controller: LoginController,
                         // controllerAs: '$ctrl'
                     },
