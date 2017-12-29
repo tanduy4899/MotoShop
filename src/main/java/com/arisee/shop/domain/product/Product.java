@@ -26,11 +26,12 @@ public class Product {
     @Enumerated(EnumType.ORDINAL)
     private ProductStatus status;
     private String color;
+    @Column(name = "made_in")
     private String madeIn;
 
 
     @ManyToOne
-    @JoinColumn(name = "categoryId")
+    @JoinColumn(name = "category_id")
     private Category category;
 
     @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
@@ -48,5 +49,18 @@ public class Product {
         rs.setCategory(category);
         rs.setImageForms(getImages().stream().map(Image::toImageForm).collect(Collectors.toList()));
         return rs;
+    }
+
+    public void setListImage(List<ImageForm> listImageForms){
+        images.clear();
+        if(!CollectionUtils.isEmpty(listImageForms)){
+            for(int i =0;i<listImageForms.size();i++){
+                ImageForm imageForm = listImageForms.get(i);
+                Image image = new Image();
+                image.setProduct(this);
+                image.setImageUrl(imageForm.getImageUrl());
+                images.add(image);
+            }
+        }
     }
 }

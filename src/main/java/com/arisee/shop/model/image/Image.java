@@ -10,4 +10,5 @@ public class Image {
     private BigInteger id;
     private String imageUrl;
     private Product productModel;
+
 }

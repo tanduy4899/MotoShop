@@ -11,5 +11,7 @@ import java.math.BigInteger;
 public class ImageForm {
     @NotEmpty
     private String imageUrl;
+    @NotNull
+    private BigInteger productId;
 
 }

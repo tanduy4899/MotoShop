@@ -14,9 +14,11 @@ public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private BigInteger id;
+    @Column(name = "image_url")
     private String imageUrl;
+
     @ManyToOne
-    @JoinColumn(name = "productId")
+    @JoinColumn(name = "product_id")
     private Product product;
 
     public com.arisee.shop.model.image.Image toImageModel(){
@@ -29,6 +31,7 @@ public class Image {
     public ImageForm toImageForm(){
         ImageForm rs = new ImageForm();
         rs.setImageUrl(imageUrl);
+//        rs.setProductId(product.getId());
         return rs;
     }
 }

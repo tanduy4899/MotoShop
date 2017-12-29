@@ -16,6 +16,7 @@ public class Order {
     private String city;
     private String district;
     private String wards;
+    @Column(name = "specific_address")
     private String specificAddress;
     private String phone;
     private String email;

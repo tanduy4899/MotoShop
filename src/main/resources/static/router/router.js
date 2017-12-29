@@ -19,7 +19,11 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
                         templateUrl:'components/category-product/view-narbar.template.html',
                         controller: 'CategoryProductController',
                         controllerAs: '$ctrl'
+                    },
+                    "viewD":{
+                        template:"<my-footer></my-footer>"
                     }
+
                 }
             })
             //begin quản lí admin
@@ -163,16 +167,28 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
             .state('login',{
                 url:'/login',
                 views: {
-                    "viewA": {
-                        template: "s"
-                    },
                     "viewB": {
                         templateUrl: 'components/login/login.template.html',
                         controller: LoginController,
                         controllerAs: '$ctrl'
-                    }
+                    },
+                    // "viewC":{
+                    //     templateUrl:'components/category-product/view-narbar.template.html',
+                    //     controller: 'CategoryProductController',
+                    //     controllerAs: '$ctrl'
+                    // }
                 }
             })
+            .state('forgotPassword',{
+                url:'/forgot-password',
+                views:{
+                    "viewB": {
+                        templateUrl: 'components/forgot-password/form-reset-token.template.html',
+                        // controller: LoginController,
+                        // controllerAs: '$ctrl'
+                    },
+                }
+             })
             // begin search
             // .state('search',{
             //     url:'/search',

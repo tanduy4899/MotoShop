@@ -7,17 +7,11 @@ import com.arisee.shop.model.user.UserForm;
 import com.arisee.shop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.math.BigInteger;
-import java.util.List;
 
 @RestController
 @RequestMapping(AbstractController.API + "/users")
@@ -52,5 +46,6 @@ public class UserController {
     public User insert(@Valid @RequestBody UserForm userForm) {
         return this.userService.create(userForm).toUser();
     }
+
 
 }

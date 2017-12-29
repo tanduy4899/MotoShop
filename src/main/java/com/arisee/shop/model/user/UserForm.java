@@ -6,16 +6,14 @@ import com.arisee.shop.domain.user.Role;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;
 
-import javax.validation.constraints.NotNull;
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import javax.persistence.Column;
+import java.time.LocalDateTime;
 
 
 @Data
 public class UserForm {
     @NotBlank
+    @Column(unique = true)
     private String username;
     @NotBlank
     private String password;
@@ -29,6 +27,7 @@ public class UserForm {
     private String email;
     @NotBlank
     private String sex;
-
     private Role roles;
+//    private com.arisee.shop.model.user.Role roles;
+
 }

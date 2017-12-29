@@ -80,6 +80,7 @@ public class ProductService {
         product.setStatus(productForm.getStatus());
         product.setMadeIn(productForm.getMadeIn());
         product.setCategory(productForm.getCategory());
+        product.setListImage(productForm.getImageForms());
         return this.productRepository.save(product);
     }
 

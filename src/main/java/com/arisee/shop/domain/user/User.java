@@ -1,19 +1,8 @@
 package com.arisee.shop.domain.user;
-
-
-
-
-import com.arisee.shop.model.user.RoleForm;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 
 @Entity
@@ -23,17 +12,21 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private BigInteger id;
+    @Column(name = "username",unique = true)
     private String username;
     private String password;
+    @Column(name = "full_name")
     private String fullName;
     private String address;
     private String phone;
     private String email;
     private String sex;
-
     @ManyToOne
-    @JoinColumn(name = "roleId")
+    @JoinColumn(name = "role_id")
     private Role roles ;
+
+//    @OneToOne(mappedBy = "user")
+//    private UserToken userToken;
 
     public User() {
 
@@ -63,4 +56,10 @@ public class User implements Serializable {
         rs.setRoles(roles);
         return rs;
     }
+
+
+
+
+
+
 }

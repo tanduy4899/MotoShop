@@ -2,7 +2,9 @@ package com.arisee.shop.service;
 
 
 import com.arisee.shop.domain.PagingObject;
+
 import com.arisee.shop.domain.user.User_;
+import com.arisee.shop.model.user.RoleForm;
 import com.arisee.shop.model.user.User;
 import com.arisee.shop.model.user.UserForm;
 import com.arisee.shop.repository.UserRepository;
@@ -16,6 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+
 import javax.persistence.criteria.Predicate;
 import java.math.BigInteger;
 import java.util.*;
@@ -27,8 +30,6 @@ import static com.arisee.shop.domain.user.User_.address;
 public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
     BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-
-
 
     @Autowired
     public UserService(UserRepository userRepository) {
@@ -57,7 +58,8 @@ public class UserService implements UserDetailsService {
         }
         rs.setTotal(userPage.getTotalElements());
         rs.setTotalPage(userPage.getTotalPages());
-        rs.setData(userPage.getContent().stream().map(com.arisee.shop.domain.user.User::toUser).collect(Collectors.toList()));
+        rs.setData(userPage.getContent().stream()
+                .map(com.arisee.shop.domain.user.User::toUser).collect(Collectors.toList()));
 
         return rs;
     }
@@ -95,6 +97,7 @@ public class UserService implements UserDetailsService {
         user.setFullName(userForm.getFullName());
         user.setSex(userForm.getSex());
         user.setRoles(userForm.getRoles());
+
         return this.userRepository.save(user);
     }
 
@@ -104,6 +107,9 @@ public class UserService implements UserDetailsService {
         user.orElseThrow(() -> new UsernameNotFoundException("Username not found"));
         return user
                 .map(CustomUserDetails::new).get();
+    }
+    public Optional<com.arisee.shop.domain.user.User> findByEmail(String email){
+        return this.userRepository.findByEmail(email);
     }
 
 }
