@@ -34,4 +34,5 @@ public class Image {
 //        rs.setProductId(product.getId());
         return rs;
     }
+
 }

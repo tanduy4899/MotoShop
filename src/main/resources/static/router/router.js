@@ -6,21 +6,24 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
                 url: '/product?page&size&search',
                 reloadOnSearch: false,
                 views:{
+                    "viewHeader":{
+                        template:"<my-header></my-header>"
+                    },
                     "viewA": {
                         template: " <my-slide></my-slide>"
                     },
-                    "viewB": {
+                    "viewB1": {
                         templateUrl: 'components/shop/shop-product.template.html',
                         controller: 'ProductShopController',
                         controllerAs: '$ctrl',
 
                     },
-                    "viewC":{
+                    "viewB2":{
                         templateUrl:'components/category-product/view-narbar.template.html',
                         controller: 'CategoryProductController',
                         controllerAs: '$ctrl'
                     },
-                    "viewD":{
+                    "viewFooter":{
                         template:"<my-footer></my-footer>"
                     }
 
@@ -31,18 +34,21 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
                 url:'/register',
                 reloadOnSearch: false,
                 views:{
-                    "viewA": {
-                        template: "<search-product></search-product>"
+                    "viewHeader":{
+                        template:"<my-header></my-header>"
                     },
                     "viewB": {
                         templateUrl:'components/admin/register.template.html',
                         controller:RegisterController,
                         controllerAs:'$ctrl'
                     },
-                    "viewC":{
+                    "viewB2":{
                         templateUrl:'components/category-product/view-narbar.template.html',
                         controller: 'CategoryProductController',
                         controllerAs: '$ctrl'
+                    },
+                    "viewFooter":{
+                        template:"<my-footer></my-footer>"
                     }
                 }
 
@@ -51,9 +57,9 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
                 url:'/admin?page&size&search',
                 reloadOnSearch: false,
                 views:{
-                    // "viewA": {
-                    //     template: " Quản Lý Thông Tin"
-                    // },
+                    "viewHeader": {
+                        template: "<header-admin></header-admin>"
+                    },
                     "viewB": {
                         templateUrl:'components/admin/admin-users.template.html',
                         controller:AdminController,
@@ -70,7 +76,7 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
                         controller:EditController,
                         controllerAs:'$ctrl'
                     },
-                    "viewC":{
+                    "viewB2":{
                         templateUrl:'components/category-product/view-narbar.template.html',
                         controller: 'CategoryProductController',
                         controllerAs: '$ctrl'
@@ -81,18 +87,21 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
                 url: '/productCategory/:id',
                 reloadOnSearch: false,
                 views:{
-                    // "viewA": {
-                    //     templateUrl:'components/search-product/san-pham.template.html'
-                    // },
-                    "viewB": {
+                    "viewHeader":{
+                        template:"<my-header></my-header>"
+                    },
+                    "viewB1": {
                         templateUrl:'components/category-product/detail-product-category.template.html',
                         controller: DetailCategoryProductController,
                         controllerAs:'$ctrl'
                     },
-                    "viewC":{
+                    "viewB2":{
                         templateUrl:'components/category-product/view-narbar.template.html',
                         controller: 'CategoryProductController',
                         controllerAs: '$ctrl'
+                    },
+                    "viewFooter":{
+                        template:"<my-Footer></my-Footer>"
                     }
                 }
             })
@@ -100,13 +109,15 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
                 url:'/sanPham',
                 reloadOnSearch: false,
                 views:{
-
+                    "viewHeader":{
+                        template:"<my-header></my-header>"
+                    },
                     "viewB":{
                         templateUrl:'components/san-pham-product/san-pham-product.template.html',
                         controller: SanPhamProductController,
                         controllerAs:'$ctrl'
                     },
-                    "viewC":{
+                    "viewB2":{
                         templateUrl:'components/category-product/view-narbar.template.html',
                         controller: 'CategoryProductController',
                         controllerAs: '$ctrl'
@@ -123,7 +134,7 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
                         controller: MapProductController,
                         controllerAs:'$ctrl'
                     },
-                    "viewC":{
+                    "viewB2":{
                         templateUrl:'components/category-product/view-narbar.template.html',
                         controller: 'CategoryProductController',
                         controllerAs: '$ctrl'
@@ -140,7 +151,7 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
                         controller: SaveProductController,
                         controllerAs:'$ctrl'
                     },
-                    "viewC":{
+                    "viewB2":{
                         templateUrl:'components/category-product/view-narbar.template.html',
                         controller: 'CategoryProductController',
                         controllerAs: '$ctrl'
@@ -171,24 +182,40 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
                         templateUrl: 'components/login/login.template.html',
                         controller: LoginController,
                         controllerAs: '$ctrl'
-                    },
-                    // "viewC":{
-                    //     templateUrl:'components/category-product/view-narbar.template.html',
-                    //     controller: 'CategoryProductController',
-                    //     controllerAs: '$ctrl'
-                    // }
+                    }
                 }
             })
-            .state('forgotPassword',{
+            .state('sendMail',{
                 url:'/forgot-password',
                 views:{
                     "viewB": {
-                        templateUrl: 'components/forgot-password/form-confirm-email.template.html',
-                        // controller: LoginController,
-                        // controllerAs: '$ctrl'
+                        templateUrl: 'components/forgot-password/send-mail/form-send-email.template.html',
+                        controller: SendMailController,
+                        controllerAs: '$ctrl'
                     },
                 }
              })
+            .state('resetPass',{
+                url:'/forgot-password/reset-password?token',
+                views:{
+                    "viewB":{
+                        templateUrl: 'components/forgot-password/reset-password/reset-password.template.html',
+                        controller: ResetPasswordController,
+                        controllerAs: '$ctrl'
+                    }
+                }
+            })
+            .state('profile',{
+                url:'/profile',
+                views:{
+                    "viewHeader": {
+                        template: "<header-admin></header-admin>"
+                    },
+                    "viewB":{
+                        templateUrl:'components/profile/profile.template.html'
+                    }
+                }
+            })
             // begin search
             // .state('search',{
             //     url:'/search',
@@ -210,7 +237,7 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
                 url: '/product/:id',
                 reloadOnSearch: false,
                 views: {
-                    "viewB": {
+                    "viewB1": {
                         templateUrl: 'components/detail-product/detail-product.template.html',
                         controller: ProductDetailController,
                         controllerAs: '$ctrl',

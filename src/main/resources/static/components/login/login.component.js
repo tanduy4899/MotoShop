@@ -4,13 +4,14 @@ function LoginController(adminService, $log,$state) {
     var vm = this;
     vm.SendLogin = function () {
         adminService.postLogin(vm.login).then(function (response) {
+            vm.demo = response.data[0].authority;
+            $log.log("dem"+vm.demo);
             vm.loginSuccess(response);
         },function (response) {
             vm.loginError();
         });
 
     };
-
     vm.loginSuccess = function (success) {
         vm.admin="ROLE_Role(id=1, role=ADMIN)";
         if(vm.admin == success.data[0].authority ){
@@ -21,7 +22,7 @@ function LoginController(adminService, $log,$state) {
         console.log("ket qua  " + success.data[0].authority);
 
     };
-    vm.loginError = function(error) {
+    vm.loginError = function() {
         alert('user hoặc pass sai');
     };
 

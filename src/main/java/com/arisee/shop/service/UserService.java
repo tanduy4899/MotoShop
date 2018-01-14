@@ -3,8 +3,8 @@ package com.arisee.shop.service;
 
 import com.arisee.shop.domain.PagingObject;
 
+
 import com.arisee.shop.domain.user.User_;
-import com.arisee.shop.model.user.RoleForm;
 import com.arisee.shop.model.user.User;
 import com.arisee.shop.model.user.UserForm;
 import com.arisee.shop.repository.UserRepository;
@@ -25,18 +25,17 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.arisee.shop.domain.user.User_.address;
+import static com.arisee.shop.domain.user.User_.email;
 
 @Service
 public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
-    BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
+    BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
     @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-
     }
-
 //    @PreAuthorize("hasRole(ADMIN)")
     public PagingObject<User> getAllUsers(Pageable pageable, String username, String fullName) {
         if (pageable.getPageSize() > 500) throw new RuntimeException("Page size too big");
@@ -76,6 +75,7 @@ public class UserService implements UserDetailsService {
         return getById(id).map(user -> {
             user.setUsername(userForm.getUsername());
             user.setPassword(encoder.encode(userForm.getPassword()));
+            user.setConfirmPassword(encoder.encode(userForm.getConfirmPassword()));
             user.setEmail(userForm.getEmail());
             user.setAddress(userForm.getAddress());
             user.setFullName(userForm.getFullName());
@@ -91,6 +91,7 @@ public class UserService implements UserDetailsService {
         com.arisee.shop.domain.user.User user = new com.arisee.shop.domain.user.User();
         user.setUsername(userForm.getUsername());
         user.setPassword(encoder.encode(userForm.getPassword()));
+        user.setConfirmPassword(encoder.encode(userForm.getConfirmPassword()));
         user.setEmail(userForm.getEmail());
         user.setAddress(userForm.getAddress());
         user.setPhone(userForm.getPhone());
@@ -111,5 +112,6 @@ public class UserService implements UserDetailsService {
     public Optional<com.arisee.shop.domain.user.User> findByEmail(String email){
         return this.userRepository.findByEmail(email);
     }
+
 
 }

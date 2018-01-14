@@ -8,7 +8,7 @@
             <div class="panel panel-group formDuy ">
                 <div class="form-group"
                      ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine}">
-                    <label class="col-lg-3 control-label required">UserName</label>
+                    <label class="col-lg-3 control-label ">UserName</label>
                     <div class="col-lg-7">
                         <div class="row">
                             <div class="col-lg-10">
@@ -54,6 +54,33 @@
                         <p class="error" ng-show="userForm.password.$error.maxlength" class="help-block">Passs is too
                             long.</p>
                     </div>
+                </div>
+                </br>
+                <div class="form-group"
+                      ng-class="{'has-error': userForm.confirmPassword.$invalid && !userForm.confirmPassword.$pristine}">
+                       <label class="col-lg-3 control-label ">ConfirmPassword</label>
+                          <div class="col-lg-7">
+                                <div class="row">
+                                  <div class="col-lg-10">
+                                     <input type="password" class="form-control" name="confirmPassword" placeholder="Input confirmPassword"
+                                                       name="confirmPassword"
+                                                       ng-show="!showPassword"
+                                                       ng-required=true ng-model="$ctrl.createRegister.confirmPassword" ng-minlength="4"
+                                                       ng-maxlength="15">
+                                     <input type="text" name="plainPassword" ng-show="showPassword" class="form-control"
+                                                       ng-model="$ctrl.createRegister.confirmPassword" ng-required=true>
+
+                                    </div>
+                                     <div class="col-lg-2">
+                                         <i class="glyphicon glyphicon-ok valid " ng-show="userForm.confirmPassword.$valid"></i>
+                                          </div>
+                                      </div>
+
+                                        <p class="error" ng-show="userForm.confirmPassword.$error.minlength" class="help-block">Pass is too
+                                            short.</p>
+                                        <p class="error" ng-show="userForm.confirmPassword.$error.maxlength" class="help-block">Passs is too
+                                            long.</p>
+                            </div>
                 </div>
                 </br>
 

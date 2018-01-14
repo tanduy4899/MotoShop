@@ -10,6 +10,7 @@ function EditController($log, adminService, $state, $stateParams) {
     },function (response) {
         vm.error = response.data;
     });
+
     vm.editRegister= function () {
         adminService.editRegisters($stateParams.id,vm.postData).then(function (){
             alert('sua thanh cong ');

@@ -7,5 +7,7 @@ import java.math.BigInteger;
 import java.util.Optional;
 
 public interface UserTokenRepository extends JpaRepository<UserToken ,BigInteger> {
-    UserToken findByToken(String token);
+      Optional<UserToken> findByToken(String token);
+
+      Optional<UserToken> getById(BigInteger id);
 }

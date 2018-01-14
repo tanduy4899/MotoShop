@@ -1,4 +1,4 @@
-package com.arisee.shop.model.user;
+package com.arisee.shop.model.user.token;
 
 import com.arisee.shop.domain.user.User;
 import lombok.Data;

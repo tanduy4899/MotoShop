@@ -1,15 +1,10 @@
 package com.arisee.shop.domain.user;
 
-import com.arisee.shop.model.user.UserTokenForm;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.UUID;
 
 @Data
 @Entity
@@ -28,8 +23,8 @@ public class UserToken {
     private User user;
 
 
-    public com.arisee.shop.model.user.UserToken toUserTokenModel(){
-        com.arisee.shop.model.user.UserToken rs = new com.arisee.shop.model.user.UserToken();
+    public com.arisee.shop.model.user.token.UserToken toUserTokenModel(){
+        com.arisee.shop.model.user.token.UserToken rs = new com.arisee.shop.model.user.token.UserToken();
         rs.setId(id);
         rs.setToken(token);
         rs.setExpiryDate(expiryDate);

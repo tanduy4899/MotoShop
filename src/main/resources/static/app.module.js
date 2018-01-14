@@ -7,6 +7,6 @@ angular.module('myApp', [
         'ngMap',
         'ngTable',
         'angularUtils.directives.dirPagination',
-        'angular-loading-bar'
+        // 'angular-loading-bar'
     ]
 );

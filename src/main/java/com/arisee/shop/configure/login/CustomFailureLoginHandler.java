@@ -26,5 +26,6 @@ public class CustomFailureLoginHandler implements AuthenticationFailureHandler {
 
         httpServletResponse.getWriter().append("Authentication failure");
         httpServletResponse.setStatus(401);
+
     }
 }

@@ -2,15 +2,13 @@
     margin-top: 2em;
 }
 
-.formDuy{
-    background: antiquewhite;
-}
 .register{
     margin-top: 2em;
 }
 
 .formDuy{
-    background: antiquewhite;
+    background: #e9ebee;
+    margin-top: 20px;
 }
 .error {color: red;}
 .valid {color: blue;}

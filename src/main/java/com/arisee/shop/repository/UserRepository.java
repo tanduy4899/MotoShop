@@ -17,9 +17,12 @@ public interface UserRepository extends JpaRepository<User,BigInteger>,JpaSpecif
     Optional<User> findByUsername(String username);
     Optional<User> findByEmail(String email);
 
-        @Modifying
-        @Query("update User u set u.password = :password where u.id = :id")
-        User updatePassword(@Param("password") String password, @Param("id") BigInteger id);
+
+
+
+     @Modifying
+     @Query("update User u set u.password = :password where u.id = :id")
+     void resetPassword(@Param("password") String password, @Param("id") BigInteger id);
 
 //    @Query("SELECT u FROM #{#entityName} u WHERE u.username =?1 AND u.password = ?2 ")
 //    Optional<User> login(String userName, String passWord);

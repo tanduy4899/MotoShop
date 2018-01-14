@@ -1,4 +1,4 @@
-package com.arisee.shop.model.user;
+package com.arisee.shop.model.user.role;
 
 import lombok.Data;
 

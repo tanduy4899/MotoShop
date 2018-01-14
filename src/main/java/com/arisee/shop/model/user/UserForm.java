@@ -17,6 +17,7 @@ public class UserForm {
     private String username;
     @NotBlank
     private String password;
+    private String confirmPassword;
     @NotBlank
     private String fullName;
     @NotBlank
@@ -28,6 +29,6 @@ public class UserForm {
     @NotBlank
     private String sex;
     private Role roles;
-//    private com.arisee.shop.model.user.Role roles;
+//    private com.arisee.shop.model.user.role.Role roles;
 
 }

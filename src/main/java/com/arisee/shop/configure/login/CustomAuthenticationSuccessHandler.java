@@ -1,5 +1,6 @@
 package com.arisee.shop.configure.login;
 
+import com.arisee.shop.domain.user.User;
 import com.arisee.shop.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.security.core.Authentication;
@@ -25,8 +26,10 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
 
 
         httpServletResponse.setStatus(HttpServletResponse.SC_OK);
+
         httpServletResponse.setContentType("application/json; charset=UTF-8");
         httpServletResponse.getWriter().write(objectMapper.writeValueAsString(authentication.getAuthorities()));
+        httpServletResponse.setContentType("application/json; charset=UTF-8");
 
 
 

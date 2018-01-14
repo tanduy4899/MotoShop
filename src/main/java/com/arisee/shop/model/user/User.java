@@ -13,6 +13,7 @@ public class User {
     @Column(unique = true)
     private String username;
     private String password;
+    private String confirmPassword;
     private String fullName;
     private String address;
     private String phone;

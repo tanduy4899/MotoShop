@@ -5,6 +5,8 @@ function adminService($log, $http) {
     vm.dataLogin = 'http://localhost:8080/login';
     vm.dataUser = '/api/users/';
     vm.dataRegister = '/api/registers/';
+    vm.dataForgotPassword ='/api/forgotPassword/'
+
     return {
         getUsers: getUsers,
         getAll: getAll,
@@ -13,6 +15,9 @@ function adminService($log, $http) {
         deleteRegisters: deleteRegisters,
         getByIdRegister: getByIdRegister,
         editRegisters : editRegisters,
+        postSendMail: postSendMail,
+        postResetPassword: postResetPassword,
+        postByToken:postByToken
         
 
     };
@@ -43,8 +48,6 @@ function adminService($log, $http) {
             headers: {'Content-Type': 'application/json'}
         });
     }
-
-
     function deleteRegisters(id) {
         return $http.delete(vm.dataUser + id);
     }
@@ -56,4 +59,18 @@ function adminService($log, $http) {
     function editRegisters(id, postData) {
         return $http.post(vm.dataUser + id, postData);
     }
+    function postSendMail(email) {
+        return $http.post(vm.dataForgotPassword+'sendMail',email,"",{
+            headers: {'Content-Type': 'application/json'}
+        });
+    }
+    function postByToken(token) {
+        return $http.post(vm.dataForgotPassword+'confirm',token,"",{
+            headers: {'Content-Type': 'application/json'}
+        });
+    }
+    function postResetPassword(token,updatePass) {
+        return $http.post(vm.dataForgotPassword+'reset-password'+'?token='+token,updatePass);
+    }
+
 }
