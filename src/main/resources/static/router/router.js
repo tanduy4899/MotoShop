@@ -71,6 +71,9 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
                 url:'/edit/:id',
                 reloadOnSearch: false,
                 views:{
+                    "viewHeader":{
+                        template: "<header-admin></header-admin>"
+                    },
                     "viewB": {
                         templateUrl:'components/admin/edit-register.template.html',
                         controller:EditController,
@@ -92,7 +95,7 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
                     },
                     "viewB1": {
                         templateUrl:'components/category-product/detail-product-category.template.html',
-                        controller: DetailCategoryProductController,
+                        controller: 'DetailCategoryProductController',
                         controllerAs:'$ctrl'
                     },
                     "viewB2":{

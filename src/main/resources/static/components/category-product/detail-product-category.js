@@ -4,17 +4,29 @@ function DetailCategoryProductController(ProductService, $log, $stateParams, $st
     var vm = this;
     vm.error = "";
     vm.filter = {
+
         search: $stateParams.search || '',
         page: $stateParams.page || 1,
         size: $stateParams.size || 9,
-        categoryId: $stateParams.id
+        categoryId: $stateParams.id,
+
     };
+
+    vm.search = search;
     vm.pageChange = pageChange;
     getData(vm.filter);
+
+    function search(){
+        vm.filter.page = 1;
+        getData(vm.filter);
+    }
+
     function pageChange() {
         getData(vm.filter);
     }
+
     function getData(filter) {
+        vm.getIdCategory = [];
         $log.info(filter);
         $state.go($state.current, filter, {notify: false, reload: false, location: 'replace'});
         vm.error = "";
@@ -25,8 +37,8 @@ function DetailCategoryProductController(ProductService, $log, $stateParams, $st
         }, function (response) {
             vm.error = "Error loading data";
         });
-    }
 
+    }
     $log.log(vm);
 
 }

@@ -10,7 +10,7 @@ function SearchProductController(ProductService, $log, $stateParams) {
     };
 
     ProductService.getAllProducts().then(function (response) {
-        vm.getAllProducts = response.data;
+        // vm.getAllProducts = response.data;
     }, function (response) {
         vm.error = response.data;
     });
@@ -37,7 +37,7 @@ function SearchProductController(ProductService, $log, $stateParams) {
     vm.findName = '';
 
     ProductService.getCategory().then(function (response) {
-        vm.category = response.data;
+        vm.categories = response.data;
     }, function (response) {
         vm.error = response.data;
     });

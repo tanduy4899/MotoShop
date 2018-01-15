@@ -27,16 +27,16 @@ function ProductShopController(ProductService, $log,$stateParams,$state) {
     }
 
     function getData(filter) {
-        vm.products = [];
-        $log.info(filter);
-        $state.go($state.current, filter, {notify: false, reload: false, location: 'replace'});
-        vm.error = "";
-        ProductService.getAllProducts(filter).then(function (resp) {
-            vm.products = resp;
-            $log.info(vm.products);
-            vm.filter.totalItems = resp.total;
-        }, function error(errResp){
-            vm.error = "Error loading data";
-        });
-    }
+    vm.products = [];
+    $log.info(filter);
+    $state.go($state.current, filter, {notify: false, reload: false, location: 'replace'});
+    vm.error = "";
+    ProductService.getAllProducts(filter).then(function (resp) {
+        vm.products = resp;
+        $log.info(vm.products);
+        vm.filter.totalItems = resp.total;
+    }, function error(errResp){
+        vm.error = "Error loading data";
+    });
+}
 }

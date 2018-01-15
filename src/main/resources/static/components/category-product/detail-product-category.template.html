@@ -1,5 +1,8 @@
-<div class="row" >
-    <div class="col-md-6 ">
+
+<div class="row" style="margin-bottom: 20px" >
+
+    <div class="col-md-6  "ng-repeat="carBox in $ctrl.getIdCategory.data | limitTo :1" >
+        <p class="type">{{carBox.category.name | uppercase }}</p>
     </div>
     <div class="col-md-6 ">
        <form class="form-inline search" ng-submit="$ctrl.search($ctrl.filter)">
