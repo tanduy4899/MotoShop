@@ -109,6 +109,7 @@ public class UserService implements UserDetailsService {
         return user
                 .map(CustomUserDetails::new).get();
     }
+
     public Optional<com.arisee.shop.domain.user.User> findByEmail(String email){
         return this.userRepository.findByEmail(email);
     }

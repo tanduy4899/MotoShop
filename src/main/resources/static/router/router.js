@@ -34,21 +34,10 @@ angular.module('myApp').config(['$stateProvider', '$urlRouterProvider',
                 url:'/register',
                 reloadOnSearch: false,
                 views:{
-                    "viewHeader":{
-                        template:"<my-header></my-header>"
-                    },
                     "viewB": {
                         templateUrl:'components/admin/register.template.html',
                         controller:RegisterController,
                         controllerAs:'$ctrl'
-                    },
-                    "viewB2":{
-                        templateUrl:'components/category-product/view-narbar.template.html',
-                        controller: 'CategoryProductController',
-                        controllerAs: '$ctrl'
-                    },
-                    "viewFooter":{
-                        template:"<my-footer></my-footer>"
                     }
                 }
 

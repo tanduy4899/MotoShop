@@ -16,6 +16,8 @@ window.fbAsyncInit = function () {
     FB.getLoginStatus(function (response) {
         if (response.status === 'connected') {
             // we are connected
+
+            console.log(response.authResponse);
         }
         else if (response.status === 'not_authorized') {
             // not auth
@@ -24,6 +26,7 @@ window.fbAsyncInit = function () {
             // we are not logged in to facebook
         }
     });
+
 };
 
 (function () {

@@ -1,105 +1,150 @@
-<form name="userForm" ng-submit="$ctrl.editRegister() " novalidate class="form-horizontal">
-    <div class="panel panel-group formDuy ">
-        <div class="form-group">
-            <label class="col-lg-3 control-label ">id</label>
-            <div class="col-lg-7">
-                <input type="text" class="form-control" name="id"
-                       ng-model="$ctrl.postData.id">
-            </div>
-        </div>
-        </br>
-        <div class="form-group">
-            <label class="col-lg-3 control-label ">UserName</label>
-            <div class="col-lg-7">
-                <input type="text" class="form-control" name="username"
-                       ng-model="$ctrl.postData.username">
-            </div>
-        </div>
-        </br>
-        <div class="form-group">
-            <label class="col-lg-3 control-label ">PassWord</label>
-            <div class="col-lg-7">
-                <input type="text" class="form-control" name="password" placeholder="Input password"
-                       name="passWord" ng-model="$ctrl.postData.password">
-            </div>
-        </div>
+<div class="login">
+<div class="content">
+<form name="userForm" ng-submit="$ctrl.editRegister()" novalidate class="form-horizontal" >
+        <h3 class="font-green">Edit User</h3>
+        <p class="hint"> Enter your personal details below: </p>
 
-        </br>
-         <div class="form-group">
-                    <label class="col-lg-3 control-label ">ConfirmPassword</label>
-                    <div class="col-lg-7">
-                        <input type="text" class="form-control" name="confirmPassword" placeholder="Input password"
-                               name="confirmPassword" ng-model="$ctrl.postData.confirmPassword">
-                    </div>
+        <div class="form-group">
+             <div class="row">
+                 <div class="col-lg-3">
+                     <label class="control-label ">id</label>
+                 </div>
+                 <div class="col-lg-9">
+                       <input class="form-control placeholder-no-fix"
+                       name="id" ng-model="$ctrl.postData.id"/>
+                 </div>
+             </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label visible-ie8 visible-ie9">Username</label>
+            <div class="row">
+                <div class="col-lg-3">
+                     <label class="control-label ">UserName</label>
+                </div>
+                <div class="col-lg-9">
+                    <input class="form-control placeholder-no-fix" name="username"
+                     ng-model="$ctrl.postData.username"/>
                 </div>
 
-                </br>
-        <div class="form-group">
-            <label class="col-lg-3 control-label">FullName</label>
-            <div class="col-lg-7">
-                <input type="text" class="form-control" placeholder="Input FullName"
-                       ng-model="$ctrl.postData.fullName">
-            </div>
+             </div>
         </div>
-        </br>
+
         <div class="form-group">
-            <label class="col-lg-3 control-label">Sex</label>
-            <div class="col-lg-7">
-
-                <select class="form-control" ng-model="$ctrl.postData.sex">
-                    <option value="">Please choice sex</option>
-                    <option>Male</option>
-                    <option>FelMale</option>
-                </select>
-
-            </div>
-        </div>
-        </br>
-        <div class="form-group">
-                    <label class="col-lg-3 control-label">Role</label>
-                    <div class="col-lg-7">
-
-                        <select class="form-control" ng-model="$ctrl.postData.roles.id">
-                            <option value="">Please choice sex</option>
-                            <option>1</option>
-                            <option>2</option>
-                        </select>
-
-                    </div>
+            <div class="row">
+                <div class="col-lg-3">
+                     <label class="control-label ">Password</label>
                 </div>
-                </br>
-        <div class="form-group">
-            <label class="col-lg-3 control-label">Address</label>
-            <div class="col-lg-7">
-                <input type="text" class="form-control" placeholder="Input Address"
-                       ng-model="$ctrl.postData.address">
-            </div>
-        </div>
-        </br>
-        <div class="form-group">
-            <label class="col-lg-3 control-label">Phone</label>
-            <div class="col-lg-7">
+                <div class="col-lg-9">
+                    <input type="password" class="form-control placeholder-no-fix "
+                     name="password" ng-model="$ctrl.postData.password">
+                </div>
 
-                <input type="text" class="form-control" placeholder="Input Phone"
-                       ng-model="$ctrl.postData.phone">
             </div>
+             <p class="error" ng-show="userForm.password.$error.minlength" class="help-block">Pass is too short.</p>
+             <p class="error" ng-show="userForm.password.$error.maxlength" class="help-block">Passs is too long.</p>
         </div>
-        </br>
+
         <div class="form-group">
-            <label class="col-lg-3 control-label">Email</label>
-            <div class="col-lg-7">
-                <input type="text" class="form-control" placeholder="Input Email" name="email"
-                       ng-model="$ctrl.postData.email">
+            <div class="row">
+                <div class="col-lg-3">
+                      <label class="control-label ">RepeatPassword</label>
+                </div>
+                <div class="col-lg-9">
+                    <input type="password" class="form-control placeholder-no-fix"
+                         name="confirmPassword" ng-model="$ctrl.postData.confirmPassword">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-3">
+                       <label class="control-label">FullName</label>
+                </div>
+                <div class="col-lg-9">
+                    <input class="form-control placeholder-no-fix" type="text"
+                        ng-model="$ctrl.postData.fullName" name="fullName"/>
+                </div>
+            </div>
+         </div>
+
+        <div class="form-group">
+
+              <div class="row">
+                  <div class="col-lg-3">
+                      <label class="control-label">Sex</label>
+                  </div>
+                  <div class="col-lg-9">
+                      <select class="form-control" name="sex" ng-model="$ctrl.postData.sex" >
+                          <option value="">Please choice sex</option>
+                          <option>Male</option>
+                          <option>FelMale</option>
+                      </select>
+                  </div>
+
+              </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-3">
+                    <label class=" control-label">Role</label>
+                </div>
+                <div class="col-lg-9">
+                     <select class="form-control" name="id" ng-model="$ctrl.postData.roles.id">
+                         <option value="">Please choice sex</option>
+                         <option>1</option>
+                         <option>2</option>
+                     </select>
+                </div>
             </div>
         </div>
-        </br>
-        </br>
-        <div class="form-group" style="text-align: center">
-            <button type="submit">Submit</button>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-3">
+                    <label class="control-label">Phone</label>
+                </div>
+                <div class="col-lg-9">
+                   <input type="text" class="form-control placeholder-no-fix" name="phone"
+                            ng-model="$ctrl.postData.phone">
+                   </div>
+            </div>
         </div>
-        </br>
-    </div>
-</form>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-3">
+                       <label class=" control-label">Address</label>
+                </div>
+                <div class="col-lg-9">
+                     <input type="text" name="address" class="form-control placeholder-no-fix"
+                           ng-model="$ctrl.postData.address">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-lg-3">
+                    <label class="control-label ">Email</label>
+                </div>
+                <div class="col-lg-9">
+                    <input type="text" class="form-control placeholder-no-fix" name="email"
+                           ng-model="$ctrl.postData.email">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="button" id="register-back-btn" class="btn green btn-outline" ui-sref="admin">Back</button>
+                <button type="submit" id="register-submit-btn"
+                 class="btn btn-success uppercase pull-right">EDIT
+                </button>
+        </div>
+    </form>
+</div>
+</div>
 
 
 

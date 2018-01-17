@@ -55,6 +55,7 @@ function LoginController(adminService, $log,$state,$scope) {
                             $scope.gmail.username = resp.displayName;
                             $scope.gmail.email = resp.emails[0].value;
                             $scope.g_image = resp.image.url;
+                            $state.go("product");
                         });
                     });
                 }
@@ -64,6 +65,7 @@ function LoginController(adminService, $log,$state,$scope) {
             'scope': 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read'
         };
         gapi.auth.signIn(params);
+
     };
     $scope.onFBLogin = function () {
         FB.login(function (response) {
@@ -73,6 +75,7 @@ function LoginController(adminService, $log,$state,$scope) {
                         $scope.facebook.username = response.name;
                         $scope.facebook.email = response.email;
                         $scope.fb_image = response.picture.data.url;
+                        $state.go("product");
                     });
                 });
             } else {
