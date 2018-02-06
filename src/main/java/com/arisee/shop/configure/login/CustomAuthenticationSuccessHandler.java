@@ -29,7 +29,6 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
 
         httpServletResponse.setContentType("application/json; charset=UTF-8");
         httpServletResponse.getWriter().write(objectMapper.writeValueAsString(authentication.getAuthorities()));
-        httpServletResponse.setContentType("application/json; charset=UTF-8");
 
 
 

@@ -10,3 +10,4 @@ import java.util.Optional;
 public interface CategoryRepository extends CrudRepository<Category,BigInteger> {
     Optional<Category> getById(BigInteger id);
 }
+

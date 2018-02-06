@@ -7,8 +7,9 @@
 }
 
 .formDuy{
-    background: #e9ebee;
+    background: white;
     margin-top: 20px;
+    width: 500px;
 }
 .error {color: red;}
 .valid {color: blue;}

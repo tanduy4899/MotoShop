@@ -19,5 +19,7 @@ public class User {
     private String phone;
     private String email;
     private String sex;
+    private String image;
     private Role roles;
+
 }

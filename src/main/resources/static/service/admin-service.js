@@ -3,6 +3,7 @@ adminService.$inject = ['$log', '$http'];
 function adminService($log, $http) {
     var vm = this;
     vm.dataLogin = 'http://localhost:8080/login';
+    vm.dataLogout = 'http://localhost:8080/logout';
     vm.dataUser = '/api/users/';
     vm.dataRegister = '/api/registers/';
     vm.dataForgotPassword ='/api/forgotPassword/'
@@ -17,7 +18,8 @@ function adminService($log, $http) {
         editRegisters : editRegisters,
         postSendMail: postSendMail,
         postResetPassword: postResetPassword,
-        postByToken:postByToken
+        postByToken:postByToken,
+        postLogout: postLogout
         
 
     };
@@ -37,8 +39,12 @@ function adminService($log, $http) {
     }
 
     function postLogin(login) {
-
         return $http.post(vm.dataLogin + '?username=' + login.username + '&password=' + login.password, "", {
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        });
+    }
+    function postLogout() {
+        return $http.post(vm.dataLogout,{
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         });
     }

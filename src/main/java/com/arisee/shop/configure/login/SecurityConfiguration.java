@@ -17,9 +17,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserService userService;
-
     @Autowired
     private ObjectMapper objectMapper;
+
+    @Autowired
+    CustomLogoutSuccessHandler customLogoutSuccessHandler;
+
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -44,7 +47,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .successHandler(new CustomAuthenticationSuccessHandler(userService, objectMapper))
-                .failureHandler(new CustomFailureLoginHandler(userService));
+                .failureHandler(new CustomFailureLoginHandler(userService))
+                .and()
+                .logout().logoutSuccessHandler(customLogoutSuccessHandler);
 
 
     }

@@ -23,6 +23,7 @@ public class User implements Serializable {
     private String phone;
     private String email;
     private String sex;
+    private String image;
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role roles ;
@@ -44,6 +45,7 @@ public class User implements Serializable {
         this.email = user.getEmail();
         this.sex = user.getSex();
         this.roles = user.getRoles();
+        this.image = user.getImage();
 
     }
 
@@ -58,6 +60,7 @@ public class User implements Serializable {
         rs.setPhone(phone);
         rs.setEmail(email);
         rs.setSex(sex);
+        rs.setImage(image);
         rs.setRoles(roles);
         return rs;
     }

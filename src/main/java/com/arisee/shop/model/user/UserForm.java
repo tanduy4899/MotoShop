@@ -28,6 +28,7 @@ public class UserForm {
     private String email;
     @NotBlank
     private String sex;
+    private String image;
     private Role roles;
 //    private com.arisee.shop.model.user.role.Role roles;
 

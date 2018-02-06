@@ -21,9 +21,10 @@ public class CustomUserDetails extends User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-
         List<SimpleGrantedAuthority> rs = new ArrayList<>();
         rs.add(new SimpleGrantedAuthority("ROLE_" + getRoles()));
+        rs.add(new SimpleGrantedAuthority(getUsername()));
+        rs.add(new SimpleGrantedAuthority(getImage()));
         return rs;
     }
 

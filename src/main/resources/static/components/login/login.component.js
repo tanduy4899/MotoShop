@@ -4,13 +4,12 @@ function LoginController(adminService, $log,$state,$scope) {
     var vm = this;
     vm.SendLogin = function () {
         adminService.postLogin(vm.login).then(function (response) {
-            vm.demo = response.data[0].authority;
-            $log.log("dem"+vm.demo);
+            $scope.user = response.data[1].authority;
+            $scope.image = response.data[2].authority;
             vm.loginSuccess(response);
         },function (response) {
             vm.loginError();
         });
-
     };
     vm.loginSuccess = function (success) {
         vm.admin="ROLE_Role(id=1, role=ADMIN)";
@@ -25,7 +24,6 @@ function LoginController(adminService, $log,$state,$scope) {
     vm.loginError = function() {
         alert('user hoặc pass sai');
     };
-    $log.log(vm);
 
 
     //login with facebook with google
