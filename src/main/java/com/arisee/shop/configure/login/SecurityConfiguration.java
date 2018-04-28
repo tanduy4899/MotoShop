@@ -19,7 +19,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private UserService userService;
     @Autowired
     private ObjectMapper objectMapper;
-
     @Autowired
     CustomLogoutSuccessHandler customLogoutSuccessHandler;
 
@@ -40,7 +39,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/api/users").hasRole("Role(id=1, role=ADMIN)")
                 .antMatchers("/api/products", "**").permitAll()
-//                .antMatchers("/api/products").hasRole("CUSTOM")
                 .and()
                 .formLogin()
                 .loginPage("/login")

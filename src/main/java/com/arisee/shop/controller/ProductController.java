@@ -23,7 +23,7 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping
-    public PagingObject<Product> getAllUsers(Pageable pageable,
+    public PagingObject<Product> getAllProducts(Pageable pageable,
                                              @RequestParam(required = false, defaultValue = "") String name,
                                              @RequestParam(required = false, defaultValue = "") BigDecimal fistPrice,
                                              @RequestParam(required = false, defaultValue = "") BigDecimal lastPrice,

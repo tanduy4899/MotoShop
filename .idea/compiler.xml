@@ -12,6 +12,7 @@
     <bytecodeTargetLevel>
       <module name="MotoShop" target="1.8" />
       <module name="springBoot" target="1.8" />
+      <module name="ssng-project" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>

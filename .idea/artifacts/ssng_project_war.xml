@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ssng-project:war">
+    <output-path>F:/ssng-project/target</output-path>
+    <root id="archive" name="ssng-project-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="ssng-project:war exploded" />
+    </root>
+  </artifact>
+</component>

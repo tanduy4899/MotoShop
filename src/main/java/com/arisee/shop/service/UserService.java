@@ -25,7 +25,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.arisee.shop.domain.user.User_.address;
-import static com.arisee.shop.domain.user.User_.email;
 
 @Service
 public class UserService implements UserDetailsService {
